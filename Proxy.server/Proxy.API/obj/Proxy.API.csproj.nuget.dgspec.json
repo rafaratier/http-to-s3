@@ -1,25 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "/home/rafa/dev_repos/insurance-claim-helper/Proxy.server/Proxy.API/Proxy.API.csproj": {}
+    "\\\\wsl.localhost\\Ubuntu\\home\\rafa\\dev_repos\\insurance-claim-helper\\Proxy.server\\Proxy.API\\Proxy.API.csproj": {}
   },
   "projects": {
-    "/home/rafa/dev_repos/insurance-claim-helper/Proxy.server/Proxy.API/Proxy.API.csproj": {
+    "\\\\wsl.localhost\\Ubuntu\\home\\rafa\\dev_repos\\insurance-claim-helper\\Proxy.server\\Proxy.API\\Proxy.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/rafa/dev_repos/insurance-claim-helper/Proxy.server/Proxy.API/Proxy.API.csproj",
+        "projectUniqueName": "\\\\wsl.localhost\\Ubuntu\\home\\rafa\\dev_repos\\insurance-claim-helper\\Proxy.server\\Proxy.API\\Proxy.API.csproj",
         "projectName": "Proxy.API",
-        "projectPath": "/home/rafa/dev_repos/insurance-claim-helper/Proxy.server/Proxy.API/Proxy.API.csproj",
-        "packagesPath": "/home/rafa/.nuget/packages/",
-        "outputPath": "/home/rafa/dev_repos/insurance-claim-helper/Proxy.server/Proxy.API/obj/",
+        "projectPath": "\\\\wsl.localhost\\Ubuntu\\home\\rafa\\dev_repos\\insurance-claim-helper\\Proxy.server\\Proxy.API\\Proxy.API.csproj",
+        "packagesPath": "C:\\Users\\Rafael\\.nuget\\packages\\",
+        "outputPath": "\\\\wsl.localhost\\Ubuntu\\home\\rafa\\dev_repos\\insurance-claim-helper\\Proxy.server\\Proxy.API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/rafa/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Rafael\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,6 +46,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.10, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.10, )"
@@ -66,7 +78,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.110/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }
