@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "\\\\wsl.localhost\\Ubuntu\\home\\rafa\\dev_repos\\insurance-claim-helper\\Proxy.server\\Proxy.API\\Proxy.API.csproj": {}
+    "C:\\Users\\Rafael\\Desktop\\dev\\insurance-claim-helper\\Proxy.server\\Proxy.API\\Proxy.API.csproj": {}
   },
   "projects": {
-    "\\\\wsl.localhost\\Ubuntu\\home\\rafa\\dev_repos\\insurance-claim-helper\\Proxy.server\\Proxy.API\\Proxy.API.csproj": {
+    "C:\\Users\\Rafael\\Desktop\\dev\\insurance-claim-helper\\Proxy.server\\Proxy.API\\Proxy.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\wsl.localhost\\Ubuntu\\home\\rafa\\dev_repos\\insurance-claim-helper\\Proxy.server\\Proxy.API\\Proxy.API.csproj",
+        "projectUniqueName": "C:\\Users\\Rafael\\Desktop\\dev\\insurance-claim-helper\\Proxy.server\\Proxy.API\\Proxy.API.csproj",
         "projectName": "Proxy.API",
-        "projectPath": "\\\\wsl.localhost\\Ubuntu\\home\\rafa\\dev_repos\\insurance-claim-helper\\Proxy.server\\Proxy.API\\Proxy.API.csproj",
+        "projectPath": "C:\\Users\\Rafael\\Desktop\\dev\\insurance-claim-helper\\Proxy.server\\Proxy.API\\Proxy.API.csproj",
         "packagesPath": "C:\\Users\\Rafael\\.nuget\\packages\\",
-        "outputPath": "\\\\wsl.localhost\\Ubuntu\\home\\rafa\\dev_repos\\insurance-claim-helper\\Proxy.server\\Proxy.API\\obj\\",
+        "outputPath": "C:\\Users\\Rafael\\Desktop\\dev\\insurance-claim-helper\\Proxy.server\\Proxy.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -46,9 +46,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "FluentValidation": {
               "target": "Package",
-              "version": "[7.0.10, )"
+              "version": "[11.7.1, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
