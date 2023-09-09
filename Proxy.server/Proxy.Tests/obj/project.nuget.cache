@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "E3d0EaYzy1wqEbDRYOpSh03DPkExyT3OK58onGvvpfL5q6NWLAXW2vyPi+YsT1gd5GjTeQqurSam/xYtDF4CYA==",
+  "dgSpecHash": "+Zde6/vXJQ8J/GNos/aDka4H66xnkKkpUsIFGGrke89aLP8B2QqPCIwtIyH+jnOwsTvCIlznj1WtqBGLDJhTkA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Rafael\\Desktop\\dev\\insurance-claim-helper\\Proxy.server\\Proxy.Tests\\Proxy.Tests.csproj",
   "expectedPackageFiles": [
@@ -8,7 +8,6 @@
     "C:\\Users\\Rafael\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\Rafael\\.nuget\\packages\\fakeiteasy\\7.4.0\\fakeiteasy.7.4.0.nupkg.sha512",
     "C:\\Users\\Rafael\\.nuget\\packages\\fluentassertions\\6.12.0\\fluentassertions.6.12.0.nupkg.sha512",
-    "C:\\Users\\Rafael\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512",
     "C:\\Users\\Rafael\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.10\\microsoft.aspnetcore.openapi.7.0.10.nupkg.sha512",
     "C:\\Users\\Rafael\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",
     "C:\\Users\\Rafael\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
