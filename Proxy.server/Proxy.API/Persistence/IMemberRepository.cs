@@ -4,5 +4,7 @@ namespace Proxy.API.Persistence;
 
 public interface IMemberRepository
 {
-    public Task<Member> GetByEmailAsync(string email);
+    public Task<Member> GetMemberByEmailAsync(string email);
+
+    public Task<LoginCredentials> GetLoginCredentialsByEmailAsync(string email);
 }

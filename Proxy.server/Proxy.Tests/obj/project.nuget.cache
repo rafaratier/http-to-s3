@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "+Zde6/vXJQ8J/GNos/aDka4H66xnkKkpUsIFGGrke89aLP8B2QqPCIwtIyH+jnOwsTvCIlznj1WtqBGLDJhTkA==",
+  "dgSpecHash": "LpOBiHXAh+uFn71kalqEhl3le2kINkkGYavFGm8fnA/oj688C+A9KGqwMbsvDJCu5s2aP3o78ElznpqbXgPbqg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Rafael\\Desktop\\dev\\insurance-claim-helper\\Proxy.server\\Proxy.Tests\\Proxy.Tests.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Rafael\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Rafael\\.nuget\\packages\\castle.core\\4.3.1\\castle.core.4.3.1.nupkg.sha512",
     "C:\\Users\\Rafael\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\Rafael\\.nuget\\packages\\fakeiteasy\\7.4.0\\fakeiteasy.7.4.0.nupkg.sha512",

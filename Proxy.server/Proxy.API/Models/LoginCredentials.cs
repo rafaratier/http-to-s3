@@ -17,6 +17,5 @@ public record LoginCredentials(
     {
         Email = email;
         Password = password;
-
     }
 }

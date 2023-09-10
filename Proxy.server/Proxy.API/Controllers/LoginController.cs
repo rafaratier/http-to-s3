@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using Proxy.API.Exceptions;
 using Proxy.API.Models;
+using Proxy.API.Services;
 
 namespace Proxy.API.Controllers;
 
@@ -7,6 +9,12 @@ namespace Proxy.API.Controllers;
 [Route("[controller]")]
 public class LoginController : ControllerBase
 {
+    private readonly IAuthenticationService _authenticationService;
+    public LoginController(IAuthenticationService authenticationService)
+    {
+        _authenticationService = authenticationService;
+    }
+    
     [HttpPost]
     public IActionResult Login(LoginCredentials request)
     {
@@ -19,6 +27,16 @@ public class LoginController : ControllerBase
 
             ModelValidationErrors validationResponse = new(errors);
             return BadRequest(validationResponse);
+        }
+
+        try
+        {
+            _authenticationService.AuthenticateMember(request.Email!, request.Password!);
+        }
+        catch (InvalidCredentialsException e)
+        {
+            ModelValidationErrors validationResponse = new(new List<string>(){e.Message});
+            return Unauthorized(validationResponse);
         }
         
         return Ok("token");
