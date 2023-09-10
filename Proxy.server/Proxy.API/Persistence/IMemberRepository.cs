@@ -6,5 +6,5 @@ public interface IMemberRepository
 {
     public Task<Member> GetMemberByEmailAsync(string email);
 
-    public Task<LoginCredentials> GetLoginCredentialsByEmailAsync(string email);
+    public Task<LoginCredentials?> GetLoginCredentialsByEmailAsync(string email);
 }

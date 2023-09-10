@@ -16,7 +16,7 @@ public class LoginController : ControllerBase
     }
     
     [HttpPost]
-    public IActionResult Login(LoginCredentials request)
+    public async Task<IActionResult> Login(LoginCredentials request)
     {
         if (!ModelState.IsValid)
         {
@@ -31,7 +31,7 @@ public class LoginController : ControllerBase
 
         try
         {
-            _authenticationService.AuthenticateMember(request.Email!, request.Password!);
+            await _authenticationService.AuthenticateMember(request.Email!, request.Password!);
         }
         catch (InvalidCredentialsException e)
         {

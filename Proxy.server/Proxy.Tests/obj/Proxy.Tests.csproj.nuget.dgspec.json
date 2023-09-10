@@ -50,9 +50,17 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.151, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.10, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.1.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

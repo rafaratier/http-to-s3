@@ -1,3 +1,5 @@
+using Proxy.API.Persistence;
+using Proxy.API.Persistence.Connection;
 using Proxy.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +15,8 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddScoped<IMySqlConnectionFactory, MySqlConnectionFactory>();
+builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 
 var app = builder.Build();
