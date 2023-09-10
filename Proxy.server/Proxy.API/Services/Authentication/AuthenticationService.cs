@@ -32,4 +32,3 @@ public class AuthenticationService : IAuthenticationService
         return new Member(loginCredentials.Email!);
     }
 }
-// "$2a$13$BR5RPaQZhgQWSqSNk5ogjudfuykrdmKLAxIpAhYZ44aNKE96jftnK"

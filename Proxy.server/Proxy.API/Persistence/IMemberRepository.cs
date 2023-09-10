@@ -7,4 +7,6 @@ public interface IMemberRepository
     public Task<Member> GetMemberByEmailAsync(string email);
 
     public Task<Credentials?> GetLoginCredentialsByEmailAsync(string email);
+
+    public Task<bool> Save(string email, string password);
 }

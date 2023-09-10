@@ -39,6 +39,6 @@ public class SignUpController : ControllerBase
             return Conflict(validationResponse);
         }
         
-        return Created(nameof(LoginController), new Member(request.Email));
+        return Created("/login", new Member(request.Email));
     }
 }
