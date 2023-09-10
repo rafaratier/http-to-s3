@@ -1,66 +1,77 @@
+using FakeItEasy;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using Proxy.API.Controllers;
+using Proxy.API.Exceptions;
 using Proxy.API.Models;
+using Proxy.API.Services;
 
 namespace Proxy.Tests;
 
 public class LoginControllerTests
 {
-    [Theory]
-    [InlineData("valido@email.com", "123456")]
-    public void Login_Should_Succeed_With_Valid_Credentials(string email, string password)
+    private readonly IAuthenticationService _authenticationService;
+    public LoginControllerTests()
+    {
+        _authenticationService = A.Fake<IAuthenticationService>();
+    }
+    [Fact]
+    public async void Login_Should_Succeed_With_Valid_Credentials()
     {
     // Arrange
-    LoginCredentials loginCredentials = new(email, password);
+    var loginCredentials = A.Fake<LoginCredentials>();
+    var member = A.Fake<Member>();
+
+    A.CallTo(  () => _authenticationService.AuthenticateMember(loginCredentials))
+        .Returns(Task.FromResult(member));
     
-    var controller = new LoginController();
+    var sut = new LoginController(_authenticationService);
     
     // Act
-    var result = controller.Login(loginCredentials);
+    var result = await sut.Login(loginCredentials);
 
     // Assert
     result.Should().NotBeNull().And.BeOfType<OkObjectResult>();
     }
     
-    [Theory]
-    [InlineData("emailInválido.com", "123456")]
-    public void Login_Should_Fail_With_Invalid_Email(string email, string password)
+    [Fact]
+    public async void Login_Should_Fail_With_Invalid_ModelState()
     {
         // Arrange
-        LoginCredentials loginCredentials = new(email, password);
+        var loginCredentials = A.Fake<LoginCredentials>();
     
-        var controller = new LoginController();
-        controller.ModelState.AddModelError("email", "e-mail inválido");
+        var sut = new LoginController(_authenticationService);
+
+        sut.ModelState.AddModelError("email", "e-mail inválido");
     
         // Act
-        var result = controller.Login(loginCredentials) as BadRequestObjectResult;
-        var responseMsg = result!.Value as ModelValidationErrors;
+        var result = await sut.Login(loginCredentials) as BadRequestObjectResult;
         
         // Assert
-        result.Should().NotBeNull().And.BeOfType<BadRequestObjectResult>();
-
+        var responseMsg = result!.Value as ModelValidationErrors;
         responseMsg!.Errors.Should().Contain("e-mail inválido");
-
+        
+        result.Should().NotBeNull().And.BeOfType<BadRequestObjectResult>();
     }
     
-    [Theory]
-    [InlineData("válido@email.com", "123")]
-    public void Login_Should_Fail_With_Invalid_Password(string email, string password)
+    [Fact]
+    public async void Login_Should_Fail_With_Invalid_Credentials()
     {
         // Arrange
-        LoginCredentials loginCredentials = new(email, password);
+        var loginCredentials = A.Fake<LoginCredentials>();
+
+        A.CallTo(  () => _authenticationService.AuthenticateMember(loginCredentials))
+            .Throws(new InvalidCredentialsException("Credencias inválias"));
     
-        var controller = new LoginController();
-        controller.ModelState.AddModelError("password", "password inválido");
+        var sut = new LoginController(_authenticationService);
     
         // Act
-        var result = controller.Login(loginCredentials) as BadRequestObjectResult;
+        var result = await sut.Login(loginCredentials) as UnauthorizedObjectResult;
         var responseMsg = result!.Value as ModelValidationErrors;
         
         // Assert
-        result.Should().NotBeNull().And.BeOfType<BadRequestObjectResult>();
+        result.Should().NotBeNull().And.BeOfType<UnauthorizedObjectResult>();
+        responseMsg!.Errors.Should().Contain("Credencias inválias");
 
-        responseMsg!.Errors.Should().Contain("password inválido");
     }
 }

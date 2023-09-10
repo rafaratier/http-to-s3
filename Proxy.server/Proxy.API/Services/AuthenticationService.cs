@@ -13,17 +13,16 @@ public class AuthenticationService : IAuthenticationService
         _memberRepository = memberRepository;
     }
 
-    public async Task<Member> AuthenticateMember(string email, string inputPassword)
+    public async Task<Member> AuthenticateMember(LoginCredentials credentials)
     {
-        var loginCredentials = await _memberRepository.GetLoginCredentialsByEmailAsync(email);
-        // Console.WriteLine(loginCredentials);
+        var loginCredentials = await _memberRepository.GetLoginCredentialsByEmailAsync(credentials.Email);
         
         if (loginCredentials is null)
         {
             throw new InvalidCredentialsException("Email inválido.");
         }
 
-        if (!(PasswordManager.Verify(inputPassword, loginCredentials.Password!)))
+        if (!(PasswordManager.Verify(credentials.Password, loginCredentials.Password!)))
         {
             throw new InvalidCredentialsException("Senha inválida.");
         }

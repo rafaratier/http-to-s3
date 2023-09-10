@@ -31,7 +31,7 @@ public class LoginController : ControllerBase
 
         try
         {
-            await _authenticationService.AuthenticateMember(request.Email!, request.Password!);
+            await _authenticationService.AuthenticateMember(request);
         }
         catch (InvalidCredentialsException e)
         {
