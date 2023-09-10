@@ -6,7 +6,7 @@ using Proxy.API.Exceptions;
 using Proxy.API.Models;
 using Proxy.API.Services;
 
-namespace Proxy.Tests;
+namespace Proxy.Tests.ControllersTests;
 
 public class LoginControllerTests
 {

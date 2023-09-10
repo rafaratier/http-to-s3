@@ -8,9 +8,11 @@ namespace Proxy.API.Services;
 public class AuthenticationService : IAuthenticationService
 {
     private readonly IMemberRepository _memberRepository;
-    public AuthenticationService(IMemberRepository memberRepository)
+    private readonly IPasswordManager _passwordManager;
+    public AuthenticationService(IMemberRepository memberRepository, IPasswordManager passwordManager)
     {
         _memberRepository = memberRepository;
+        _passwordManager = passwordManager;
     }
 
     public async Task<Member> AuthenticateMember(LoginCredentials credentials)
@@ -22,7 +24,7 @@ public class AuthenticationService : IAuthenticationService
             throw new InvalidCredentialsException("Email inválido.");
         }
 
-        if (!(PasswordManager.Verify(credentials.Password, loginCredentials.Password!)))
+        if (!(_passwordManager.Verify(credentials.Password, loginCredentials.Password!)))
         {
             throw new InvalidCredentialsException("Senha inválida.");
         }
