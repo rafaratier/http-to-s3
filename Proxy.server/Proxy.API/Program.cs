@@ -1,6 +1,7 @@
 using Proxy.API.Persistence;
 using Proxy.API.Persistence.Connection;
 using Proxy.API.Services;
+using Proxy.API.Services.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 

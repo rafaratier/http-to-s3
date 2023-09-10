@@ -1,22 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
 using Proxy.API.Exceptions;
 using Proxy.API.Models;
-using Proxy.API.Services;
+using Proxy.API.Services.Registration;
 
 namespace Proxy.API.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class LoginController : ControllerBase
+public class SignUpController : ControllerBase
 {
-    private readonly IAuthenticationService _authenticationService;
-    public LoginController(IAuthenticationService authenticationService)
+    private readonly IRegisterService _registerService;
+    public SignUpController(IRegisterService registerService)
     {
-        _authenticationService = authenticationService;
+        _registerService = registerService;
     }
     
     [HttpPost]
-    public async Task<IActionResult> Login(Credentials request)
+    public async Task<IActionResult> SignUp(Credentials request)
     {
         if (!ModelState.IsValid)
         {
@@ -31,14 +31,14 @@ public class LoginController : ControllerBase
 
         try
         {
-            await _authenticationService.AuthenticateMember(request);
+            await _registerService.RegisterMember(request);
         }
-        catch (InvalidCredentialsException e)
+        catch (MemberAlreadyExistsException e)
         {
             ModelValidationErrors validationResponse = new(new List<string>(){e.Message});
-            return Unauthorized(validationResponse);
+            return Conflict(validationResponse);
         }
         
-        return Ok("token");
+        return Created(nameof(LoginController), new Member(request.Email));
     }
 }

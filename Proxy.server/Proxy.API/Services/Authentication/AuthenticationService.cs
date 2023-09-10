@@ -3,7 +3,7 @@ using Proxy.API.Exceptions;
 using Proxy.API.Models;
 using Proxy.API.Persistence;
 
-namespace Proxy.API.Services;
+namespace Proxy.API.Services.Authentication;
 
 public class AuthenticationService : IAuthenticationService
 {
@@ -15,7 +15,7 @@ public class AuthenticationService : IAuthenticationService
         _passwordManager = passwordManager;
     }
 
-    public async Task<Member> AuthenticateMember(LoginCredentials credentials)
+    public async Task<Member> AuthenticateMember(Credentials credentials)
     {
         var loginCredentials = await _memberRepository.GetLoginCredentialsByEmailAsync(credentials.Email);
         

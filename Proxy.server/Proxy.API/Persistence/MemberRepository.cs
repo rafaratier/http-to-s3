@@ -17,12 +17,12 @@ public class MemberRepository : IMemberRepository
         throw new NotImplementedException();
     }
 
-    public async Task<LoginCredentials?> GetLoginCredentialsByEmailAsync(string email)
+    public async Task<Credentials?> GetLoginCredentialsByEmailAsync(string email)
     {
         await using MySqlConnection mySqlConnection = _connectionFactory
             .Create();
 
-        LoginCredentials? loginCredentials = await mySqlConnection.QueryFirstOrDefaultAsync<LoginCredentials>(
+        Credentials? loginCredentials = await mySqlConnection.QueryFirstOrDefaultAsync<Credentials>(
             @"SELECT Email, Password FROM Members WHERE Email = @email",
             new
             {

@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Proxy.API.Models;
 
-public record LoginCredentials(
+public record Credentials(
     )
 {
     [Required(ErrorMessage = "Forneça o endereço de email para efetuar o login")]
@@ -13,7 +13,7 @@ public record LoginCredentials(
     [MinLength(6, ErrorMessage = "A senha precisa ter no mínimo 6 caracteres")]
     public string Password { get; init; }  = String.Empty;
 
-    public LoginCredentials(string email, string password) : this()
+    public Credentials(string email, string password) : this()
     {
         Email = email;
         Password = password;

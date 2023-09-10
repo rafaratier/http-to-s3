@@ -4,5 +4,5 @@ namespace Proxy.API.Services;
 
 public interface IAuthenticationService
 {
-    public Task<Member> AuthenticateMember(LoginCredentials credentials);
+    public Task<Member> AuthenticateMember(Credentials credentials);
 }

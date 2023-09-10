@@ -5,6 +5,7 @@ using Proxy.API.Exceptions;
 using Proxy.API.Models;
 using Proxy.API.Persistence;
 using Proxy.API.Services;
+using Proxy.API.Services.Authentication;
 
 namespace Proxy.Tests.ServicesTests;
 
@@ -23,10 +24,10 @@ public class AuthenticationServiceTests
     public async void Authentication_Should_Succeed_With_Valid_Credentials()
     {
         //Arrange
-        var loginCredentials = A.Fake<LoginCredentials>();
+        var loginCredentials = A.Fake<Credentials>();
 
         A.CallTo(() => _memberRepository.GetLoginCredentialsByEmailAsync(loginCredentials.Email))
-            .Returns(Task.FromResult<LoginCredentials?>(loginCredentials));
+            .Returns(Task.FromResult<Credentials?>(loginCredentials));
         
         A.CallTo(() => _passwordManager.Verify(loginCredentials.Password, loginCredentials.Password)).Returns(true);
         
@@ -43,10 +44,10 @@ public class AuthenticationServiceTests
     public async void Authentication_Should_Fail_If_Member_Not_Registered()
     {
         //Arrange
-        var loginCredentials = A.Fake<LoginCredentials>();
+        var loginCredentials = A.Fake<Credentials>();
 
         A.CallTo(() => _memberRepository.GetLoginCredentialsByEmailAsync(loginCredentials.Email))
-            .Returns(Task.FromResult<LoginCredentials?>(null));
+            .Returns(Task.FromResult<Credentials?>(null));
         
         var sut = new AuthenticationService(_memberRepository, _passwordManager);
         
@@ -62,7 +63,7 @@ public class AuthenticationServiceTests
     public async void Authentication_Should_Fail_With_Invalid_Password(string inputPassword)
     {
         //Arrange
-        var loginCredentials = A.Fake<LoginCredentials>();
+        var loginCredentials = A.Fake<Credentials>();
         
         A.CallTo(() => _passwordManager.Verify(inputPassword, loginCredentials.Password)).Returns(false);
         

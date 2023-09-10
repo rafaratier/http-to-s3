@@ -19,7 +19,7 @@ public class LoginControllerTests
     public async void Login_Should_Succeed_With_Valid_Credentials()
     {
     // Arrange
-    var loginCredentials = A.Fake<LoginCredentials>();
+    var loginCredentials = A.Fake<Credentials>();
     var member = A.Fake<Member>();
 
     A.CallTo(  () => _authenticationService.AuthenticateMember(loginCredentials))
@@ -38,7 +38,7 @@ public class LoginControllerTests
     public async void Login_Should_Fail_With_Invalid_ModelState()
     {
         // Arrange
-        var loginCredentials = A.Fake<LoginCredentials>();
+        var loginCredentials = A.Fake<Credentials>();
     
         var sut = new LoginController(_authenticationService);
 
@@ -58,7 +58,7 @@ public class LoginControllerTests
     public async void Login_Should_Fail_With_Invalid_Credentials()
     {
         // Arrange
-        var loginCredentials = A.Fake<LoginCredentials>();
+        var loginCredentials = A.Fake<Credentials>();
 
         A.CallTo(  () => _authenticationService.AuthenticateMember(loginCredentials))
             .Throws(new InvalidCredentialsException("Credencias inválias"));
