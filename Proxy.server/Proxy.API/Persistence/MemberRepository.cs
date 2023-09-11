@@ -12,7 +12,7 @@ public class MemberRepository : IMemberRepository
         _connectionFactory = connectionFactory;
     }
     
-    public async Task<Member> GetMemberByEmailAsync(string email)
+    public async Task<Member?> GetMemberByEmailAsync(string email)
     {
         await using MySqlConnection mySqlConnection = _connectionFactory
             .Create();

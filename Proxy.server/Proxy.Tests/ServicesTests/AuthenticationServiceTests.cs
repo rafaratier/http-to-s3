@@ -1,10 +1,9 @@
 using FakeItEasy;
 using FluentAssertions;
-using Proxy.API.Common;
+using Proxy.API.Common.PasswordManager;
 using Proxy.API.Exceptions;
 using Proxy.API.Models;
 using Proxy.API.Persistence;
-using Proxy.API.Services;
 using Proxy.API.Services.Authentication;
 
 namespace Proxy.Tests.ServicesTests;

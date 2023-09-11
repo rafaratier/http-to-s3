@@ -8,5 +8,7 @@
     &lt;TestId&gt;xUnit::B4619B25-C3EB-4CC6-96F9-39A9AAA66255::net7.0::Proxy.Tests.ControllersTests.SignUpControllerTests.Registration_Should_Fail_With_Invalid_ModelState&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::B4619B25-C3EB-4CC6-96F9-39A9AAA66255::net7.0::Proxy.Tests.ControllersTests.SignUpControllerTests.Registration_Should_Succeed_With_Valid_Credentials&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;xUnit::B4619B25-C3EB-4CC6-96F9-39A9AAA66255::net7.0::Proxy.Tests.ControllersTests.SignUpControllerTests.SignUp_Should_Fail_If_Member_Already_Exists&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B4619B25-C3EB-4CC6-96F9-39A9AAA66255::net7.0::Proxy.Tests.ServicesTests.RegisterServiceTests.Registration_Should_Fail_If_Member_Already_Exists&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::B4619B25-C3EB-4CC6-96F9-39A9AAA66255::net7.0::Proxy.Tests.ServicesTests.RegisterServiceTests.Registration_Should_Succeed_If_Member_Does_Not_Exist&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

@@ -1,4 +1,4 @@
-namespace Proxy.API.Common;
+namespace Proxy.API.Common.PasswordManager;
 
 public interface IPasswordManager
 {

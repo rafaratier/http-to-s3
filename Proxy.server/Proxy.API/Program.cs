@@ -1,4 +1,5 @@
 using Proxy.API.Common;
+using Proxy.API.Common.PasswordManager;
 using Proxy.API.Persistence;
 using Proxy.API.Persistence.Connection;
 using Proxy.API.Services;

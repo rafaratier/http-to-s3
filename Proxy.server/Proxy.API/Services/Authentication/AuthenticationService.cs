@@ -1,4 +1,4 @@
-using Proxy.API.Common;
+using Proxy.API.Common.PasswordManager;
 using Proxy.API.Exceptions;
 using Proxy.API.Models;
 using Proxy.API.Persistence;
