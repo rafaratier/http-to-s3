@@ -1,5 +1,6 @@
-using Proxy.API.Common;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Proxy.API.Common.PasswordManager;
+using Proxy.API.Common.TokenManager;
 using Proxy.API.Persistence;
 using Proxy.API.Persistence.Connection;
 using Proxy.API.Services;
@@ -19,6 +20,13 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer();
+
+builder.Services.ConfigureOptions<JwtOptionsSetup>();
+builder.Services.ConfigureOptions<JwtBearerOptionsSetup>();
+
+builder.Services.AddScoped<ITokenProvider, JwtProvider>();
 builder.Services.AddScoped<IMySqlConnectionFactory, MySqlConnectionFactory>();
 builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
@@ -35,6 +43,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

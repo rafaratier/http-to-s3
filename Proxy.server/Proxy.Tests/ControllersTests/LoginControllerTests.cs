@@ -1,6 +1,7 @@
 using FakeItEasy;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
+using Proxy.API.Common.TokenManager;
 using Proxy.API.Controllers;
 using Proxy.API.Exceptions;
 using Proxy.API.Models;
@@ -11,10 +12,13 @@ namespace Proxy.Tests.ControllersTests;
 public class LoginControllerTests
 {
     private readonly IAuthenticationService _authenticationService;
+    private readonly ITokenProvider _tokenProvider;
     public LoginControllerTests()
     {
         _authenticationService = A.Fake<IAuthenticationService>();
+        _tokenProvider = A.Fake<ITokenProvider>();
     }
+    
     [Fact]
     public async void Login_Should_Succeed_With_Valid_Credentials()
     {
@@ -25,7 +29,7 @@ public class LoginControllerTests
     A.CallTo(  () => _authenticationService.AuthenticateMember(loginCredentials))
         .Returns(Task.FromResult(member));
     
-    var sut = new LoginController(_authenticationService);
+    var sut = new LoginController(_authenticationService, _tokenProvider);
     
     // Act
     var result = await sut.Login(loginCredentials);
@@ -40,7 +44,7 @@ public class LoginControllerTests
         // Arrange
         var loginCredentials = A.Fake<Credentials>();
     
-        var sut = new LoginController(_authenticationService);
+        var sut = new LoginController(_authenticationService, _tokenProvider);
 
         sut.ModelState.AddModelError("email", "e-mail inválido");
     
@@ -63,7 +67,7 @@ public class LoginControllerTests
         A.CallTo(  () => _authenticationService.AuthenticateMember(loginCredentials))
             .Throws(new InvalidCredentialsException("Credencias inválias"));
     
-        var sut = new LoginController(_authenticationService);
+        var sut = new LoginController(_authenticationService, _tokenProvider);
     
         // Act
         var result = await sut.Login(loginCredentials) as UnauthorizedObjectResult;

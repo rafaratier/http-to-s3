@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Proxy.API.Common.TokenManager;
 using Proxy.API.Exceptions;
 using Proxy.API.Models;
 using Proxy.API.Services;
@@ -10,9 +11,11 @@ namespace Proxy.API.Controllers;
 public class LoginController : ControllerBase
 {
     private readonly IAuthenticationService _authenticationService;
-    public LoginController(IAuthenticationService authenticationService)
+    private readonly ITokenProvider _jwtProvider;
+    public LoginController(IAuthenticationService authenticationService, ITokenProvider jwtProvider)
     {
         _authenticationService = authenticationService;
+        _jwtProvider = jwtProvider;
     }
     
     [HttpPost]
@@ -38,7 +41,8 @@ public class LoginController : ControllerBase
             ModelValidationErrors validationResponse = new(new List<string>(){e.Message});
             return Unauthorized(validationResponse);
         }
-        
-        return Ok("token");
+
+        var token = _jwtProvider.Generate(request.Email);
+        return Ok(token);
     }
 }
