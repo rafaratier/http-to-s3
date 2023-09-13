@@ -31,9 +31,6 @@ public class RegisterServiceTests
         //Act
         var sut = new RegisterService(_memberRepository, _passwordManager);
 
-        _passwordManager.Hash("p");
-        
-
         var result = await sut.RegisterMember(credentials);
         
         //Assert

@@ -1,4 +1,6 @@
+using Amazon.S3;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Proxy.API.Common.AwsManager;
 using Proxy.API.Common.PasswordManager;
 using Proxy.API.Common.TokenManager;
 using Proxy.API.Persistence;
@@ -26,12 +28,16 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.ConfigureOptions<JwtOptionsSetup>();
 builder.Services.ConfigureOptions<JwtBearerOptionsSetup>();
 
+builder.Services.AddDefaultAWSOptions(builder.Configuration.GetAWSOptions());
+builder.Services.AddAWSService<IAmazonS3>();
+
 builder.Services.AddScoped<ITokenProvider, JwtProvider>();
 builder.Services.AddScoped<IMySqlConnectionFactory, MySqlConnectionFactory>();
 builder.Services.AddScoped<IMemberRepository, MemberRepository>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<IRegisterService, RegisterService>();
 builder.Services.AddScoped<IPasswordManager, PasswordManager>();
+builder.Services.AddScoped<IPresignedUrlProvider, PresignedUrlProvider>();
 
 var app = builder.Build();
 

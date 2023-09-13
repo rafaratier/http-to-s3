@@ -145,3 +145,6 @@ C:\Users\Rafael\Desktop\dev\insurance-claim-helper\Proxy.server\Proxy.Tests\bin\
 C:\Users\Rafael\Desktop\dev\insurance-claim-helper\Proxy.server\Proxy.Tests\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\Rafael\Desktop\dev\insurance-claim-helper\Proxy.server\Proxy.Tests\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Rafael\Desktop\dev\insurance-claim-helper\Proxy.server\Proxy.Tests\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Rafael\Desktop\dev\insurance-claim-helper\Proxy.server\Proxy.Tests\bin\Debug\net7.0\AWSSDK.Core.dll
+C:\Users\Rafael\Desktop\dev\insurance-claim-helper\Proxy.server\Proxy.Tests\bin\Debug\net7.0\AWSSDK.Extensions.NETCore.Setup.dll
+C:\Users\Rafael\Desktop\dev\insurance-claim-helper\Proxy.server\Proxy.Tests\bin\Debug\net7.0\AWSSDK.S3.dll
